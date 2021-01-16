@@ -5,15 +5,11 @@ import org.sqlite.SQLiteDataSource;
 import java.sql.*;
 
 public class SQLHandling {
-    private String url;
-    private SQLiteDataSource dataSource;
-    private static int id;
+    private final SQLiteDataSource dataSource;
 
     public SQLHandling(String name) {
-        this.url = "jdbc:sqlite:" + name;
         dataSource = new SQLiteDataSource();
-        dataSource.setUrl(url);
-        id=1;
+        dataSource.setUrl("jdbc:sqlite:"+name);
     }
 
     public SQLHandling() {

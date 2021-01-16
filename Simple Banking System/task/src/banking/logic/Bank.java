@@ -2,13 +2,12 @@ package banking.logic;
 
 import banking.domain.Account;
 
-import java.sql.Connection;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bank {
-    private SQLHandling sqlConn;
+    private final SQLHandling sqlConn;
 
     public Bank(SQLHandling sqlConnection) {
         this.sqlConn = sqlConnection;

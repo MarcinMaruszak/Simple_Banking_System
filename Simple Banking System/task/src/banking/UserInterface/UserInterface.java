@@ -3,12 +3,11 @@ package banking.UserInterface;
 import banking.domain.Account;
 import banking.logic.Bank;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Scanner scanner;
-    private Bank bank;
+    private final Scanner scanner;
+    private final Bank bank;
     private boolean exit;
 
     public UserInterface(Scanner scanner, Bank bank) {
