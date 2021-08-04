@@ -9,14 +9,14 @@ public class SQLHandling {
 
     public SQLHandling(String name) {
         dataSource = new SQLiteDataSource();
-        dataSource.setUrl("jdbc:sqlite:"+name);
+        dataSource.setUrl("jdbc:sqlite:" + name);
     }
 
     public SQLHandling() {
         this("bank.db");
     }
 
-    public void connectAndCheck() throws Exception{
+    public void connectAndCheck() throws Exception {
         try (Connection connection = dataSource.getConnection()) {
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS card(" +
@@ -44,58 +44,58 @@ public class SQLHandling {
 
     public void addAccount(String card, String pin) throws Exception {
         try (Connection connection = dataSource.getConnection()) {
-            String sql= "INSERT INTO card (number,pin) VALUES (?,?)";
+            String sql = "INSERT INTO card (number,pin) VALUES (?,?)";
             PreparedStatement prepStatement = connection.prepareStatement(sql);
-            prepStatement.setString(1,card);
-            prepStatement.setString(2,pin);
+            prepStatement.setString(1, card);
+            prepStatement.setString(2, pin);
             prepStatement.executeUpdate();
         }
     }
 
     public String login(String card, String pin) throws Exception {
-        try(Connection conn = dataSource.getConnection()) {
+        try (Connection conn = dataSource.getConnection()) {
             String sql = "SELECT * FROM card WHERE number=? AND pin=?";
             PreparedStatement prepSt = conn.prepareStatement(sql);
-            prepSt.setString(1,card);
-            prepSt.setString(2,pin);
+            prepSt.setString(1, card);
+            prepSt.setString(2, pin);
             ResultSet resultSet = prepSt.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 return card;
             }
         }
-        throw  new Exception("Wrong card number or PIN!");
+        throw new Exception("Wrong card number or PIN!");
     }
 
-    public void addIncome(String number, int income) throws Exception{
-        try(Connection connection = dataSource.getConnection()){
+    public void addIncome(String number, int income) throws Exception {
+        try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE card SET balance = balance + ? WHERE number = ?";
             PreparedStatement prepStatement = connection.prepareStatement(sql);
             prepStatement.setInt(1, income);
-            prepStatement.setString(2,number);
+            prepStatement.setString(2, number);
             prepStatement.executeUpdate();
         }
     }
 
-    public int getBalance(String cardNumber) throws Exception{
-        try(Connection connection = dataSource.getConnection()){
+    public int getBalance(String cardNumber) throws Exception {
+        try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM card WHERE number = ?";
             PreparedStatement prepStm = connection.prepareStatement(sql);
             prepStm.setString(1, cardNumber);
             ResultSet resultSet = prepStm.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 return resultSet.getInt("balance");
             }
         }
         throw new Exception("Couldn't retrieve balance");
     }
 
-    public void doTransfer(String cardNumber, String targetCard, int amount) throws Exception{
-        try(Connection connection = dataSource.getConnection()){
+    public void doTransfer(String cardNumber, String targetCard, int amount) throws Exception {
+        try (Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(false);
 
             String sql = "UPDATE card SET balance = balance + ? WHERE number = ?";
             PreparedStatement prepSt = connection.prepareStatement(sql);
-            prepSt.setInt(1, amount*-1);
+            prepSt.setInt(1, amount * -1);
             prepSt.setString(2, cardNumber);
             prepSt.executeUpdate();
 
@@ -107,8 +107,8 @@ public class SQLHandling {
         }
     }
 
-    public void closeAccount(String card) throws Exception{
-        try(Connection connection = dataSource.getConnection()){
+    public void closeAccount(String card) throws Exception {
+        try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM card WHERE number = ?";
             PreparedStatement preSt = connection.prepareStatement(sql);
             preSt.setString(1, card);

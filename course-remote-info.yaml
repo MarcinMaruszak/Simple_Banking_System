@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/295560/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sat, 16 Jan 2021 18:12:55 UTC
+update_date: Wed, 04 Aug 2021 13:37:11 UTC
 stages:
 - id: 515
   step: 8425
@@ -19,30 +19,18 @@ stages:
   is_completed: true
 topics:
   0:
-  - title: Units of information
-    theory_id: 6865
-  - title: Introduction to OOP
-    theory_id: 3614
-  - title: IDE
-    theory_id: 10996
   - title: Write, compile, and run
     theory_id: 3739
   - title: JVM, JRE, and JDK
     theory_id: 3499
-  - title: What is an exception
-    theory_id: 3497
-  - title: Hierarchy of exceptions
-    theory_id: 3570
-  - title: Exception handling
-    theory_id: 3552
+  - title: Units of information
+    theory_id: 6865
+  - title: IDE
+    theory_id: 10996
   - title: Introduction to operating systems
     theory_id: 9704
-  - title: Command line overview
-    theory_id: 8977
-  - title: Parameters and options
-    theory_id: 9746
-  - title: Running programs on your computer
-    theory_id: 3746
+  - title: Computer programming
+    theory_id: 8739
   - title: Introduction to Java
     theory_id: 3500
   - title: Basic literals
@@ -59,10 +47,14 @@ topics:
     theory_id: 3510
   - title: Comments
     theory_id: 3520
+  - title: Coding style conventions
+    theory_id: 12411
   - title: Naming variables
     theory_id: 3513
   - title: Scanning the input
     theory_id: 9055
+  - title: Introduction to OOP
+    theory_id: 3614
   - title: Arithmetic operations
     theory_id: 3519
   - title: Integer types and operations
@@ -101,8 +93,10 @@ topics:
     theory_id: 3511
   - title: Iterating over arrays
     theory_id: 3602
-  - title: Multi-dimensional array
+  - title: Multidimensional array
     theory_id: 1933
+  - title: Arrays as parameters
+    theory_id: 3594
   - title: String
     theory_id: 3523
   - title: IntelliJ IDEA
@@ -111,39 +105,49 @@ topics:
     theory_id: 5819
   - title: EduTools
     theory_id: 5839
+  - title: Command line overview
+    theory_id: 8977
+  - title: Parameters and options
+    theory_id: 9746
   - title: Errors in programs
     theory_id: 3536
+  - title: What is an exception
+    theory_id: 3497
+  - title: Hierarchy of exceptions
+    theory_id: 3570
+  - title: Exception handling
+    theory_id: 3552
+  - title: Running programs on your computer
+    theory_id: 3746
+  - title: Random
+    theory_id: 4910
   - title: Defining classes
     theory_id: 3618
-  - title: Package
-    theory_id: 3621
   - title: Constructor
     theory_id: 3535
-  - title: Objects
-    theory_id: 4727
   - title: Instance methods
     theory_id: 3495
+  - title: Package
+    theory_id: 3621
   - title: Access modifiers
     theory_id: 3589
   - title: Getters and setters
     theory_id: 3599
-  - title: Random
-    theory_id: 4910
   - title: Inheritance
     theory_id: 3583
+  - title: Objects
+    theory_id: 4727
   1:
+  - title: Command-line arguments
+    theory_id: 3566
   - title: Files
     theory_id: 3635
   - title: Reading files
     theory_id: 3636
-  - title: Arrays as parameters
-    theory_id: 3594
   - title: Build tools
     theory_id: 4284
   - title: Java Archive
     theory_id: 4311
-  - title: Command-line arguments
-    theory_id: 3566
   - title: Gradle basics
     theory_id: 5075
   - title: Basic project with Gradle
@@ -156,7 +160,7 @@ topics:
     theory_id: 10630
   2:
   - title: Files
-    theory_id: 6989
+    theory_id: 13025
   - title: Introduction to databases
     theory_id: 8497
   - title: What is SQL

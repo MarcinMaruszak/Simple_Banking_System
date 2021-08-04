@@ -16,8 +16,12 @@ subprojects {
     }
 
     dependencies {
-        compile group:'org.xerial', name:'sqlite-jdbc', version:'3.8.11.2'
+        implementation group:'org.xerial', name:'sqlite-jdbc', version:'3.8.11.2'
         testImplementation 'com.github.hyperskill:hs-test:release-SNAPSHOT'
+
+    }
+    dependencies {
+        implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
     }
 
     configurations.all {
@@ -29,19 +33,13 @@ subprojects {
         test.java.srcDir 'test'
     }
 
-    test {
+    /*test {
         systemProperty "file.encoding", "utf-8"
         outputs.upToDateWhen { false }
-        afterTest { TestDescriptor test, TestResult result ->
-            if (result.resultType == TestResult.ResultType.FAILURE) {
-                def message = result.exception?.message ?: "Wrong answer"
-                def lines = message.readLines()
-                println "#educational_plugin FAILED + " + lines[0]
-                lines[1..-1].forEach { line ->
-                    println "#educational_plugin" + line
-                }
-            }
-        }
+    }*/
+
+    test{
+        useJUnitPlatform()
     }
 
     compileJava.options.encoding = 'utf-8'
@@ -51,5 +49,5 @@ subprojects {
 }
 
 wrapper {
-    gradleVersion = '6.6.1'
+    gradleVersion = '7.1.1'
 }
